@@ -1,18 +1,13 @@
 import Mark from "./Mark";
 
 const Accordion = ({row}: {row: any}) => {
-  console.log(row)
   const id = row?.id;
-  // console.log(id)
   const fullDate = row?.date
 
   let parts = fullDate.split('-');
 
   let formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
 
-  const handleChange = () => {
-    // console.log("changed")
-  }
 
   return (
       <div className="collapse collapse-arrow bg-base-200">

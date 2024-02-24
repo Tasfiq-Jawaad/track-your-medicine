@@ -16,7 +16,6 @@ const NewDate = () => {
     // Return the formatted date as 'YYYY-MM-DD'
     const today = `${year}-${month}-${day}`;
 
-    // console.log(today)
 
   function formatDate(dateString: string) {
     // Create a new Date object using the provided date string
@@ -33,12 +32,10 @@ const NewDate = () => {
 
   const handleNewDate = async (e: any) => {
     e.preventDefault();
-    console.log(e.target.date.valueAsDate);
     const valueAsDate = e.target.date.valueAsDate;
 
     const date = formatDate(valueAsDate);
 
-    console.log(date);
 
     const added = await addDay(date);
   };

@@ -3,10 +3,7 @@
 import { markComplete, unMarkComplete } from "@/lib/actions/user.action";
 
 const Mark = ({check, id, col}: {check: boolean, id:number, col: string}) => {
-  console.log(id)
   const handleChange = async (e: any) => {
-    console.log("changed", e.target.checked)
-    console.log(col)
     if(e.target.checked){
         const mark = await markComplete(id, col);
     }
