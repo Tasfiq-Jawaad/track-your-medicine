@@ -32,7 +32,7 @@ const NewDate = () => {
   };
   return (
     <form className="flex gap-4 justify-center" onSubmit={handleNewDate}>
-      <input className="px-3 rounded-2xl" type="date" name="date" id="date" />
+      <input className="px-3 rounded-2xl text-white" type="date" name="date" id="date" />
       <button className="btn btn-primary" type="submit">Add new date</button>
     </form>
   );
