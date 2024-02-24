@@ -1,7 +1,19 @@
 import Btn from "@/components/Btn";
 import { login } from "@/lib/actions/auth.action";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const page = async () => {
+
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  const userSession = await supabase.auth.getUser();
+  console.log(userSession)
+  if(userSession?.data?.user)
+    redirect("/");
+
   return (
     <form
       className="w-3/4 min-w-[312px] sm:w-[480px] md:w-[530px] mx-auto border p-7 rounded-2xl shadow-2xl form bg-white bg-opacity-30"
