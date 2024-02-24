@@ -4,7 +4,19 @@ import { addDay } from "@/lib/actions/user.action";
 import React, { useState } from "react";
 
 const NewDate = () => {
-  const { date, setDate } = useState() as any;
+  // const { date, setDate } = useState("") as string;
+
+  let createDate = new Date();
+
+    // Extract year, month, and day from the Date object
+    let year = createDate.getUTCFullYear();
+    let month = (createDate.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = createDate.getUTCDate().toString().padStart(2, "0");
+
+    // Return the formatted date as 'YYYY-MM-DD'
+    const today = `${year}-${month}-${day}`;
+
+    // console.log(today)
 
   function formatDate(dateString: string) {
     // Create a new Date object using the provided date string
@@ -32,7 +44,7 @@ const NewDate = () => {
   };
   return (
     <form className="flex gap-4 justify-center" onSubmit={handleNewDate}>
-      <input className="px-3 rounded-2xl text-white" type="date" name="date" id="date" />
+      <input defaultValue={today} placeholder="Date" className="px-3 rounded-2xl text-white" type="date" name="date" id="date" />
       <button className="btn btn-primary" type="submit">Add new date</button>
     </form>
   );
